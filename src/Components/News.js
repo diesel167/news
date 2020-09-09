@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import NewsApi from "../utils/NewsApi";
+import NewsItem from "./NewsItem";
+
+import { useDispatch} from "react-redux";
 
 function News() {
-
-  let [last, setLast] = useState(null);
   let [isInitial,setInitial] = useState(true);
+  const dispatch = useDispatch();
   useEffect( ()=>{
     if(isInitial){
       //get news
@@ -12,19 +14,16 @@ function News() {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(e.data,"text/xml");
         let arrOfNews = [...xmlDoc.getElementsByTagName('item')];
+        dispatch({type: 'NEWS', payload: arrOfNews});
         let item = arrOfNews[0];
-        let title = item.getElementsByTagName('title')[0].innerHTML;
-        setLast(title);
+        console.log(item);
       });
       setInitial(false);
     }
+  },[isInitial, dispatch]);
 
-
-
-  },[last]);
-  console.log(last);
   return <div className='news'>
-    {last?last:'hi'}
+    <NewsItem/>
   </div>
 }
 

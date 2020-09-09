@@ -2,7 +2,8 @@ const initialState = {
   city: null,
   country: null,
   coordinates: null,
-  temperature: null
+  temperature: null,
+  news: null
 };
 
 function rootReducer(state= initialState, action) {
@@ -15,6 +16,8 @@ function rootReducer(state= initialState, action) {
       return Object.assign({},state,{coordinates: action.payload});
     case 'TEMPERATURE':
       return Object.assign({},state,{temperature: action.payload});
+    case 'NEWS':
+      return Object.assign({},state,{news: action.payload});
     default:
         return state
   }

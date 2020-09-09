@@ -18,11 +18,11 @@ function UserData() {
         dispatch({type: 'COUNTRY', payload: e.data.country.name_ru});
       });
     }
-  });
+  }, [isInitial, dispatch]);
 
   let content = <div>Hello!</div>;
   if(city && country ){
-    content = `Погода в ${city}, ${country}`;
+    content = `Сейчас в ${city}, ${country}:\xa0`;
   }
 
   return (

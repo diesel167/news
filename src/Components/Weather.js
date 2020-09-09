@@ -6,6 +6,9 @@ function Weather() {
   const dispatch = useDispatch();
   const coordinates = useSelector(state => state.coordinates);
   const temperature = useSelector(state => state.temperature);
+  const parser = new DOMParser();
+  const deg = parser.parseFromString(`<!doctype html><body>	&#176;`, 'text/html').body.textContent;
+
   useEffect( ()=>{
     //get geo data for user
     if(coordinates){
@@ -15,7 +18,7 @@ function Weather() {
     }
   });
 
-  return <div className='weather'>{temperature?temperature:0}</div>
+  return <div className='weather'>{temperature?`${temperature}${deg}`:0}</div>
 }
 
 export default Weather;
