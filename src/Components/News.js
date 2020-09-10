@@ -15,8 +15,6 @@ function News() {
         let xmlDoc = parser.parseFromString(e.data,"text/xml");
         let arrOfNews = [...xmlDoc.getElementsByTagName('item')];
         dispatch({type: 'NEWS', payload: arrOfNews});
-        let item = arrOfNews[0];
-        console.log(item);
       });
       setInitial(false);
     }

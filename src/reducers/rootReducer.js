@@ -3,7 +3,8 @@ const initialState = {
   country: null,
   coordinates: null,
   temperature: null,
-  news: null
+  news: null,
+  showList: {begin: 0, end: 12}
 };
 
 function rootReducer(state= initialState, action) {
@@ -18,6 +19,8 @@ function rootReducer(state= initialState, action) {
       return Object.assign({},state,{temperature: action.payload});
     case 'NEWS':
       return Object.assign({},state,{news: action.payload});
+    case 'CHANGE_SHOWING':
+      return Object.assign({},state,{showList: action.payload});
     default:
         return state
   }
