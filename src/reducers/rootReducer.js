@@ -4,7 +4,8 @@ const initialState = {
   coordinates: null,
   temperature: null,
   news: null,
-  showList: {begin: 0, end: 12}
+  showList: {begin: 0, end: 12},
+  url: '/all.rss'
 };
 
 function rootReducer(state= initialState, action) {
@@ -21,6 +22,8 @@ function rootReducer(state= initialState, action) {
       return Object.assign({},state,{news: action.payload});
     case 'CHANGE_SHOWING':
       return Object.assign({},state,{showList: action.payload});
+    case 'CHANGE_URL':
+      return Object.assign({},state,{url: action.payload});
     default:
         return state
   }

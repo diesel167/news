@@ -2,6 +2,19 @@
     text-align: center;
 }
 
+.loader{
+    margin: 0 auto;
+    width: 60px;
+    height: 80px;
+}
+.news-toggler{
+    display: inline-block;
+    float: right;
+    width: 120px;
+    background-color: yellowgreen;
+    margin: 0 auto;
+}
+
 .news{
     display: grid;
     max-width: 1280px;

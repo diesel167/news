@@ -2,23 +2,21 @@ import React, { useEffect, useState } from 'react';
 import NewsApi from "../utils/NewsApi";
 import NewsItem from "./NewsItem";
 
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 
 function News() {
-  let [isInitial,setInitial] = useState(true);
   const dispatch = useDispatch();
+  let url = useSelector(state=>state.url);
   useEffect( ()=>{
-    if(isInitial){
-      //get news
-      NewsApi.get('/all.rss').then((e)=>{
+  //get news
+      NewsApi.get(url).then((e)=>{
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(e.data,"text/xml");
         let arrOfNews = [...xmlDoc.getElementsByTagName('item')];
         dispatch({type: 'NEWS', payload: arrOfNews});
       });
-      setInitial(false);
-    }
-  },[isInitial, dispatch]);
+
+  },[url, dispatch]);
 
   return <div className='news'>
     <NewsItem/>
