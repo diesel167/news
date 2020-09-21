@@ -1,20 +1,70 @@
+@font-face {
+    font-family: 'Adobe Arabic';
+    src:
+            url('./fonts/AdobeArabic-Bold.woff2') format('woff2'),
+            url('./fonts/AdobeArabic-Bold.woff') format('woff'),
+            url('./fonts/AdobeArabic-Bold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Work Sans';
+    src:
+            url('./fonts/Work Sans/Worksans.woff2') format('woff2'),
+            url('./fonts/Work Sans/Worksans.woff') format('woff'),
+            url('./fonts/Work Sans/Worksans.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+*{
+    font-family: 'Work Sans', sans-serif;
+
+}
+html{
+    background: linear-gradient(white, #4d3c34);
+    min-height: 100vh;
+}
 .app{
     text-align: center;
+    position: relative;
 }
 
-.loader{
+.header {
+    width: 100%;
     margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 100;
+    background-color: rgba(255,255,255,.8);
+}
+.header:after{
+    content: '';
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    height: 0;
+    border-bottom: 1px solid #c7c7c7;
+    font-size: 1px;
+    overflow: hidden;
+}
+.info{
+    display: inline-block;
+    position: absolute;
+    left: 15px;
+    text-align: left;
+}
+.loader{
+    margin: 20px auto;
     width: 60px;
     height: 80px;
 }
-.news-toggler{
-    display: inline-block;
-    float: right;
-    width: 120px;
-    background-color: yellowgreen;
-    margin: 0 auto;
+.hide{
+    display: none;
 }
-
 .news{
     display: grid;
     max-width: 1280px;
@@ -22,68 +72,53 @@
     text-align: center;
     margin: 0 auto;
     box-sizing: border-box;
-
+    padding-top: 80px;
 }
-
-.news-item{
+.logo{
     position: relative;
-    justify-self: center;
-    width:300px;
-    height: 200px;
-    background-color: antiquewhite;
-    margin: 5px;
-    overflow: hidden;
+    color: #292929;
+    font-weight: 800;
+    font-family: "Adobe Arabic",sans-serif;
+    font-size: 50px;
+    width: 135px;
+    text-align: right;
+    height: 30px;
+    margin: 0 20px 0 -12px;
+    line-height: 30px;
+    box-sizing: border-box;
+    padding-left: 50px;
 }
-
-.news-item:hover .image{
-    filter: brightness(.7);
-    transition: .2s ease-in-out;
-}
-.news-item:hover .title{
-    background: rgba(255,255,255,1);
-}
-
-.title{
-    font-size: .8em;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 70px;
-    background: rgba(240,240,240,1);
-}
-
-
-.link{
-    position: static;
+.logo:before{
     display: block;
-    z-index: 100 !important;
-    text-decoration: none;
-    color: black;
+    position: absolute;
+    top: 9px;
+    content: '';
+    height: 15px;
+    line-height: 100%;
+    width: 35px;
+    background-color: black;
+    left: 13px;
 }
-
-.image{
-    z-index: 1;
-    width: 100%;
-    cursor: pointer;
-}
-
-.weather{
-    color: dimgray;
-    font-weight: 500;
-    display: inline-block;
-    font-size: .7em;
+.logo:after {
+    display: block;
+    position: absolute;
+    top: -9px;
+    content: 'belarus';
+    height: 10px;
+    font-size: 9px;
+    left: 20px;
 }
 .user-data{
     display: inline-block;
     font-size: .7em;
+    text-align: left;
 }
-
 .navbar{
+    width: 100%;
     margin: 0 auto;
     font-size: 16px;
     text-align: center;
 }
-
 .navbar button{
     cursor: pointer;
     border: 0;
@@ -91,21 +126,11 @@
     outline: none;
     background-color: transparent;
 }
-
-.footer{
-
-    text-align: center;
-    bottom: 10px;
-}
-
-.footer p{
-    position: relative;
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.64);
+.btn{
     display: inline-block;
-}
-.footer a{
-    color: rgba(0, 0, 0, 0.64);
+    width: 16px;
+    height: 20px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1260px) {
@@ -124,6 +149,14 @@
         grid-template-columns: 1fr 1fr;
         text-align: center;
         margin: 0 auto;
+    }
+
+    .info{
+        position: relative;
+        width: 100%;
+    }
+    .header{
+        height: 100px;
     }
 }
 @media screen and (max-width: 630px) {

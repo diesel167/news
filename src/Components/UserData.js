@@ -20,7 +20,7 @@ function UserData() {
     }
   }, [isInitial, dispatch]);
 
-  let content = <div>Hello!</div>;
+  let content = <div>It will be the weather at your city</div>;
   if(city && country ){
     content = `Сейчас в ${city}, ${country}:\xa0`;
   }

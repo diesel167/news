@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
+import './NewsItem.css'
 
 function NewsItem() {
   const news = useSelector(state => state.news);

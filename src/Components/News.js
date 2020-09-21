@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import NewsApi from "../utils/NewsApi";
 import NewsItem from "./NewsItem";
 

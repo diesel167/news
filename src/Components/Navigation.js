@@ -18,7 +18,6 @@ function Navigation() {
   let [currentPage, setCurrentPage] = useState(1);
 
   const setPageNum = (changeEvent) => {
-    console.log(typeof(changeEvent));
     if(typeof(changeEvent)==='number'){
       let begin = changeEvent*newsPerPage-newsPerPage;
       let end = changeEvent*newsPerPage > news.length ? news.length : changeEvent*newsPerPage;
@@ -52,10 +51,10 @@ function Navigation() {
     for(let j = i; j <= i+4; j++){
       let temp ='';
       if(j<=count){
-        temp = <button key={count*j} className="btn" onClick={setPageNum}>{j}</button>;
+        temp = <div key={count*j} className="btn" onClick={setPageNum}>{j}</div>;
       }
       if(+j === +currentPage){
-        temp = <button key={count*j} className="btn" style={{color:'red'}} onClick={setPageNum}>{j}</button>;
+        temp = <div key={count*j} className="btn" style={{color:'white'}} onClick={setPageNum}>{j}</div>;
       }
       buttonsNum.push(temp);
     }
@@ -63,10 +62,10 @@ function Navigation() {
   };
 
   return <div className='navbar'>
-    <button onClick={()=>setPageNum(1)}>{tofirst}</button>
+    <div className="btn" onClick={()=>setPageNum(1)}>{tofirst}</div>
       {generatePageNumButtons()}
        | of {count}
-    <button onClick={()=>setPageNum(count)}>{tolast}</button>
+    <div className="btn" onClick={()=>setPageNum(count)}>{tolast}</div>
   </div>
 }
 

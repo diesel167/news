@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Wea from '../utils/WeatherApi'
 import {useSelector, useDispatch} from 'react-redux'
-
+import './Weather.css'
 function Weather() {
   const dispatch = useDispatch();
   const coordinates = useSelector(state => state.coordinates);
@@ -18,7 +18,7 @@ function Weather() {
     }
   });
 
-  return <div className='weather'>{temperature?`${temperature}${deg}`:0}</div>
+  return <div className='weather'>{temperature?`${temperature}${deg}`:''}</div>
 }
 
 export default Weather;

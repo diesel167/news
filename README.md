@@ -1,1 +1,1 @@
-This is News service basic on tut.by RSS, with your location and weather info.
+This is News service based on tut.by RSS, with your location and weather info.

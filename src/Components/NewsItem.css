@@ -1,0 +1,42 @@
+.news-item{
+    position: relative;
+    justify-self: center;
+    width:300px;
+    height: 200px;
+    color: white;
+    margin: 5px;
+    overflow: hidden;
+    font-size: 18px;
+    border-radius: 2px;
+}
+.news-item:hover .image{
+    filter: brightness(.7);
+    transition: .2s ease-in-out;
+}
+
+.title{
+    font-size: .8em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    padding-top: 2px;
+    background-color: rgba(40, 40, 40, 1);
+    color: white;
+    overflow: hidden;
+}
+.link{
+    position: static;
+    display: block;
+    z-index: 100 !important;
+    text-decoration: none;
+    color: black;
+    overflow: hidden;
+    height: 199px;
+    width: 100%;
+}
+.image{
+    z-index: 1;
+    width: 100%;
+    cursor: pointer;
+}
